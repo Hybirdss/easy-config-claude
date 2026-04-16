@@ -1,0 +1,30 @@
+{
+  "model": "sonnet",
+  "env": {
+    "MAX_THINKING_TOKENS": "10000",
+    "HOOK_PROFILE": "minimal",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "SLASH_COMMAND_TOOL_CHAR_BUDGET": "60000",
+    "ENABLE_TOOL_SEARCH": "auto:5",
+    "CLAUDE_CODE_SUBPROCESS_ENV_SCRUB": "0",
+    "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "Agent(*)",
+      "NotebookEdit(*)",
+      "TodoWrite(*)",
+      "Skill(*)",
+      "mcp__*"
+    ],
+    "deny": []
+  }
+}

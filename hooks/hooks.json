@@ -1,0 +1,73 @@
+[
+  {
+    "description": "세션 시작 시간 기록",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "bash \"$HOME/.claude/hooks/easy-session-start.sh\"",
+        "events": ["SessionStart"]
+      }
+    ]
+  },
+  {
+    "description": "세션 종료 시 1줄 요약 자동 저장",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "bash \"$HOME/.claude/hooks/easy-stop-summary.sh\"",
+        "events": ["Stop"]
+      }
+    ]
+  },
+  {
+    "description": "작업 완료 데스크톱 알림",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "bash \"$HOME/.claude/hooks/notify-done.sh\"",
+        "events": ["Stop"]
+      }
+    ]
+  },
+  {
+    "description": "CLAUDE.md 20줄 초과 경고",
+    "matcher": "CLAUDE\\.md",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "bash \"$HOME/.claude/hooks/easy-claude-md-guard.sh\" \"$CLAUDE_TOOL_INPUT_FILE_PATH\"",
+        "events": ["PostToolUse"]
+      }
+    ]
+  },
+  {
+    "description": "컨텍스트 잔여량 단계별 경고",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "bash \"$HOME/.claude/hooks/context-monitor.sh\"",
+        "events": ["PostToolUse"]
+      }
+    ]
+  },
+  {
+    "description": "같은 에러 2회 반복 시 실패 기록 주입 (Failure DNA)",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "python3 \"$HOME/.claude/hooks/failure-dna.py\"",
+        "events": ["PostToolUseFailure"]
+      }
+    ]
+  },
+  {
+    "description": "위험한 파일 편집·명령 차단",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "bash \"$HOME/.claude/hooks/block-dangerous.sh\"",
+        "events": ["PreToolUse"]
+      }
+    ]
+  }
+]
