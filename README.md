@@ -298,21 +298,24 @@ MCP(Model Context Protocol)는 Claude에 새로운 도구를 붙이는 방법입
 | [anthropics/courses](https://github.com/anthropics/courses) | 공식 강의 노트북. Prompt Engineering부터 Tool Use까지 |
 | [Claude Code 공식 문서](https://docs.anthropic.com/ko/docs/claude-code) | 훅, 커스텀 커맨드, 메모리 시스템 공식 레퍼런스 |
 
-### 비교해볼 만한 AI 코딩 도구
+### Claude Code IDE 플러그인
 
-Claude Code 말고 다른 선택지들입니다. 각각 철학이 다릅니다.
+터미널 외에 에디터 안에서도 Claude Code를 쓸 수 있습니다.
 
-| 도구 | 방식 | 특징 |
+| 플러그인 | 에디터 | 설명 |
+|---------|--------|------|
+| [Claude Code for VS Code](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code) | VS Code | 공식 확장. 터미널 Claude Code와 동일한 기능을 에디터 패널에서 |
+| [Claude Code for JetBrains](https://plugins.jetbrains.com/plugin/26071-claude-code) | IntelliJ / WebStorm 등 | 공식 플러그인. 코드 선택 → 즉시 Claude에게 물어보기 |
+
+### 이 레포에 포함된 워크플로 도구
+
+설치 시 함께 세팅되는 skills-lib 도구들 — 필요한 사람은 더 파고들어볼 수 있습니다.
+
+| 도구 | 역할 | 상세 |
 |------|------|------|
-| [cline](https://github.com/cline/cline) | VS Code 확장 | GUI + 에이전트. 파일 수정·터미널 실행을 UI로 승인 |
-| [aider](https://github.com/aider-chat/aider) | 터미널 | git-aware AI 페어 프로그래밍. 커밋까지 자동 |
-
-### 프롬프트 엔지니어링 더 파고들기
-
-| 레포 | 설명 |
-|------|------|
-| [jxnl/instructor](https://github.com/jxnl/instructor) | LLM에서 구조화된 출력 뽑는 패턴. API 개발할 때 유용 |
-| [brexhq/prompt-engineering](https://github.com/brexhq/prompt-engineering) | Brex 내부 프롬프트 가이드. 실전 기반 |
+| **gstack** | 아이디어 검증 · 플랜 리뷰 워크플로 | `아이디어 있어` 키워드로 자동 진입. YC 스타일 6개 질문으로 실현 가능성 체크 |
+| **gws** | Google Workspace 자동화 | Gmail, Calendar, Drive, Sheets를 Claude에서 직접 제어. `gws` 바이너리 필요 |
+| **gbrain** | 런북·SOP·지식 관리 | `런북 써줘` 한 마디로 담당자·검토주기 포함한 실전 SOP 작성 |
 
 ---
 
