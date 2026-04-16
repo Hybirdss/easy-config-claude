@@ -169,12 +169,27 @@ echo "TARGET: $TARGET → $TARGET_PATH"
 
 | 스택 | 추가할 @-import |
 |------|---------------|
-| nextjs | `@./rules/nextjs.md` (App Router, Server Components 패턴) |
-| python | `@./rules/python.md` (타입 힌트, async, pyproject.toml) |
-| rust | `@./rules/rust.md` (borrow checker, Clippy, cargo fmt) |
-| go | `@./rules/go.md` (gofmt, error wrapping, context propagation) |
+| nextjs | `@./rules/lang/nextjs.md` (App Router, Server Components 패턴) |
+| python | `@./rules/lang/python.md` (타입 힌트, async, 보안 패턴) |
+| supabase | `@./rules/lang/supabase.md` (RLS 필수, migration 안전 규칙) |
 
-룰 파일이 이 레포의 `rules/lang/` 디렉토리에 없으면 스킵. 없는 스택은 추가 않음.
+설치 방법:
+```bash
+REPO_DIR=$(pwd)
+mkdir -p "$CLAUDE_DIR/rules/lang"
+
+for stack_file in nextjs python supabase; do
+  if [ -f "$REPO_DIR/rules/lang/${stack_file}.md" ]; then
+    dest="$CLAUDE_DIR/rules/lang/${stack_file}.md"
+    if [ ! -f "$dest" ]; then
+      cp "$REPO_DIR/rules/lang/${stack_file}.md" "$dest"
+      echo "설치: rules/lang/${stack_file}.md"
+    fi
+  fi
+done
+```
+
+CLAUDE.md에서 감지된 스택의 룰 파일을 `@-import`로 추가 (이미 있으면 스킵).
 
 ---
 

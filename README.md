@@ -209,6 +209,11 @@ techdebt
 | `conventions.md` | 만들기 전에 검색. 구 코드 삭제. 서브에이전트 활용. |
 | `model-routing.md` | 설계·반복실패 → Opus 자동 제안. 기본은 Sonnet. |
 | `intelligence.md` | **← 이게 핵심.** Anti-slop. Anti-sycophancy. Boil the lake. |
+| `lang/nextjs.md` | App Router 컨벤션. `use client` 남발 차단. Server Action vs Route Handler 판단 기준. |
+| `lang/python.md` | 타입 힌트 필수. async 블로킹 금지. eval/pickle 보안 패턴. |
+| `lang/supabase.md` | RLS 모든 테이블 필수. service_role 키 클라이언트 노출 차단. migration 락 방지. |
+
+`setup` 실행 시 프로젝트 스택을 자동 감지해서 해당 lang rules만 설치합니다.
 
 ### `~/.claude/hooks/` — 7개 자동화
 
@@ -259,13 +264,18 @@ easy-config-claude/
 │   ├── guardrails.md            검증·자율성·에스컬레이션
 │   ├── conventions.md           코드 컨벤션·컨텍스트 관리
 │   ├── model-routing.md         Opus 자동 전환 규칙
-│   └── intelligence.md          ← 이게 핵심. Claude를 다르게 만드는 규칙
+│   ├── intelligence.md          ← 이게 핵심. Claude를 다르게 만드는 규칙
+│   └── lang/                    스택별 사전 설정 (setup이 자동 감지 후 설치)
+│       ├── nextjs.md            App Router, Server Component 판단 기준
+│       ├── python.md            타입 힌트, async 올바른 사용, 보안 패턴
+│       └── supabase.md          RLS 필수, migration 안전 규칙
 ├── skills/                      매일 쓰는 것 (슬래시 커맨드)
 │   ├── commit/SKILL.md          커밋 메시지 생성
 │   ├── review/SKILL.md          코드 리뷰
 │   ├── setup/SKILL.md           환경 자동 설정
 │   ├── diagnose/SKILL.md        세팅 건강도 채점
-│   └── techdebt/SKILL.md        기술 부채 정기 점검
+│   ├── techdebt/SKILL.md        기술 부채 정기 점검
+│   └── update/SKILL.md          최신 버전으로 업데이트
 ├── skills-lib/                  상황별 (키워드로 자동 로드)
 │   ├── gstack/SKILL.md          아이디어 검증 · 플랜 리뷰
 │   ├── gws/SKILL.md             Google Workspace 자동화
