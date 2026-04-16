@@ -160,6 +160,34 @@ E. 메모리 시스템      [ 6/10] ██████░░░░
 
 ---
 
+### `techdebt` — 기술 부채 정기 점검
+
+양치질처럼 습관적으로 씁니다. 한 번에 다 갚으려 하지 않고, 오늘 5분 안에 처리할 수 있는 것만 골라서 즉시 처리합니다.
+
+```
+techdebt
+```
+
+```
+## Techdebt 점검 결과 — 2026-04-16
+
+### 처리 완료 (오늘)
+- src/utils/format.ts:12  console.log 제거
+- src/api/users.ts:34     `: any` → `UserRecord` 타입으로 교체
+- src/hooks/useData.ts:8  빈 catch 블록 → logger.error 추가
+
+### 다음 세션에
+- src/lib/db.ts:89        하드코딩된 DB URL (예상 소요: 20분, 환경변수 마이그레이션 필요)
+- src/components/Modal.tsx  FIXME: 모달 z-index 충돌 (예상 소요: 10분)
+- 전체 TODO 주석: 7개 잔여
+
+오늘 처리: 3건 / 잔여 부채: 9건
+```
+
+매주 1회 돌리면 3개월 안에 레거시 주석이 사라집니다.
+
+---
+
 ## 무엇이 바뀌는가
 
 ### `~/.claude/settings.json`
@@ -236,7 +264,8 @@ easy-config-claude/
 │   ├── commit/SKILL.md          커밋 메시지 생성
 │   ├── review/SKILL.md          코드 리뷰
 │   ├── setup/SKILL.md           환경 자동 설정
-│   └── diagnose/SKILL.md        세팅 건강도 채점
+│   ├── diagnose/SKILL.md        세팅 건강도 채점
+│   └── techdebt/SKILL.md        기술 부채 정기 점검
 ├── skills-lib/                  상황별 (키워드로 자동 로드)
 │   ├── gstack/SKILL.md          아이디어 검증 · 플랜 리뷰
 │   ├── gws/SKILL.md             Google Workspace 자동화
@@ -297,15 +326,6 @@ MCP(Model Context Protocol)는 Claude에 새로운 도구를 붙이는 방법입
 | [anthropics/anthropic-cookbook](https://github.com/anthropics/anthropic-cookbook) | Anthropic 공식 레시피 모음. RAG, 에이전트, 툴 사용 예제 전부 있음 |
 | [anthropics/courses](https://github.com/anthropics/courses) | 공식 강의 노트북. Prompt Engineering부터 Tool Use까지 |
 | [Claude Code 공식 문서](https://docs.anthropic.com/ko/docs/claude-code) | 훅, 커스텀 커맨드, 메모리 시스템 공식 레퍼런스 |
-
-### Claude Code IDE 플러그인
-
-터미널 외에 에디터 안에서도 Claude Code를 쓸 수 있습니다.
-
-| 플러그인 | 에디터 | 설명 |
-|---------|--------|------|
-| [Claude Code for VS Code](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code) | VS Code | 공식 확장. 터미널 Claude Code와 동일한 기능을 에디터 패널에서 |
-| [Claude Code for JetBrains](https://plugins.jetbrains.com/plugin/26071-claude-code) | IntelliJ / WebStorm 등 | 공식 플러그인. 코드 선택 → 즉시 Claude에게 물어보기 |
 
 ### 이 레포에 포함된 워크플로 도구
 

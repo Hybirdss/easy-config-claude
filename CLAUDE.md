@@ -15,6 +15,7 @@ Claude Code 최적화 세팅 레포. "설정해줘" 한 마디면 토큰 60% 절
 | 코드 리뷰, review | diff 기반 리뷰 (CRITICAL/HIGH/MEDIUM) | `./skills/review/SKILL.md` |
 | 설정해줘, setup | 로컬 환경 자동 최적화 | `./skills/setup/SKILL.md` |
 | 진단, diagnose | 세팅 건강도 0-100점 | `./skills/diagnose/SKILL.md` |
+| techdebt, 기술부채 | 부채 정기 점검 + 즉시 처리 | `./skills/techdebt/SKILL.md` |
 
 ## Skills-Lib (키워드 자동 감지)
 
